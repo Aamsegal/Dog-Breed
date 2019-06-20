@@ -1,0 +1,11 @@
+.dog-Form p{
+    font-size: 18px;
+}
+
+.dog-Image {
+    box-sizing: border-box;
+    padding-top: 10px;
+    display: inline;
+    padding-right: 10px;
+    height: 500px;
+}
