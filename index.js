@@ -22,6 +22,7 @@ function getDogImage(breed) {
           })
           .then(responseJson => displayResults(responseJson))
           .catch(err => {
+              $('.dog-Image-Container').empty();
               $('#js-error-message').text(`Something went wrong: ${err.message}`);
           });
   }
@@ -29,6 +30,7 @@ function getDogImage(breed) {
 function displayResults(responseJson) {
   console.log(responseJson);
   //replace the existing image with the new one
+    $('#js-error-message').empty();
     $('.dog-Image-Container').html(
         `<img src="${responseJson.message}" class="dog-Image" alt="Pupper Image">`
     )
