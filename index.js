@@ -6,12 +6,25 @@ function getDogImage(breed) {
   
   console.log(breedUrl);
   
-  fetch(breedUrl)
+  /*fetch(breedUrl)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
     .catch(error => alert('Something went wrong. Try again later.'));
-}
+}*/
+
+  fetch(breedUrl)
+          .then(response => {
+              if (response.ok) {
+                  return response.json();
+              }
+              throw new Error(response.statusText);
+          })
+          .then(responseJson => displayResults(responseJson))
+          .catch(err => {
+              $('#js-error-message').text(`Something went wrong: ${err.message}`);
+          });
+  }
 
 function displayResults(responseJson) {
   console.log(responseJson);
